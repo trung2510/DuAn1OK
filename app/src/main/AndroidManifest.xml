@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.qlks">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".list_activity.ListPDKActivity"
+            android:parentActivityName=".activity.PhieuDangKiActivity">
+
+        </activity>
+        <activity android:name=".activity.PhieuDangKiActivity"
+            android:parentActivityName=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".list_activity.ListHoaDonActivity"
+            android:parentActivityName=".activity.HoaDonActivity">
+
+        </activity>
+
+        <activity android:name=".activity.LoginActivity"
+            android:parentActivityName=".activity.SplashScreenActivity">
+
+        </activity>
+        <activity android:name=".list_activity.ListPhongActivity"
+            android:parentActivityName=".activity.PhongActivity">
+
+        </activity>
+        <activity android:name=".activity.HoaDonActivity"
+            android:parentActivityName=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".activity.PhongActivity"
+            android:parentActivityName=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".list_activity.ListDichVuActivity"
+            android:parentActivityName=".activity.DichVuActivity">
+
+        </activity>
+        <activity android:name=".activity.DichVuActivity"
+            android:parentActivityName=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".list_activity.ListKhachHangActivity"
+            android:parentActivityName=".activity.KhachHangActivity">
+
+        </activity>
+        <activity android:name=".list_activity.ListNhanVienActivity"
+            android:parentActivityName=".activity.NhanVienActivity">
+
+        </activity>
+        <activity android:name=".activity.KhachHangActivity"
+            android:parentActivityName=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".activity.NhanVienActivity"
+            android:parentActivityName=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".activity.MainActivity"
+            android:parentActivityName=".activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.SplashScreenActivity">
+
+        </activity>
+    </application>
+
+</manifest>
