@@ -98,17 +98,36 @@ public class DichVuActivity extends AppCompatActivity {
     }
 
     public void UpdateDichVu(View view){
-        dichvuDAO = new DichvuDAO(DichVuActivity.this);
-        DichVu dichVu = new DichVu(edMaDV.getText().toString().trim(),edTenDV.getText().toString().trim(),edGiaDV.getText().toString().trim());
-        if (dichvuDAO.UpdateDichVu(dichVu)==1){
-            Toast.makeText(this, "Cap nhat thanh cong", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(this, "Cap nhat that bai", Toast.LENGTH_SHORT).show();
-        }
+
+
+
+                String id = edMaDV.getText().toString();
+                String name = edTenDV.getText().toString();
+                String mt = edGiaDV.getText().toString();
+
+
+
+                if (id.equals("")){
+                    edMaDV.setError("Nhập Mã DV");
+                }
+                if (name.equals("")){
+                    edTenDV.setError("Nhập Tên DV");
+                }
+                if (mt.equals("")){
+                    edGiaDV.setError("Nhập Giá DV");
+                }
+
+                DichVu dichVu = new DichVu(id,name,mt);
+
+                if (dichvuDAO.UpdateDichVu(dichVu) > 0) {
+                    Toast.makeText(DichVuActivity.this, "Update thành công", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(DichVuActivity.this, "Update thất bại", Toast.LENGTH_SHORT).show();
+                }
+
+            }
     }
 
 
-
-}
 

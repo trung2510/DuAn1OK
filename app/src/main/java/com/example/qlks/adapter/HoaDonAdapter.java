@@ -36,8 +36,8 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.ViewHolder
 
     public void onBindViewHolder( ViewHolder viewHolder,final int i) {
         HoaDon hoaDon = hoaDonList.get(i);
-        viewHolder.txtID.setText(hoaDon.getMaHD());
-        viewHolder.txtDATE.setText(hoaDon.getMaPTT());
+        viewHolder.txtID.setText("Mã HD: "+hoaDon.getMaHD());
+        viewHolder.txtDATE.setText("Mã PTT: "+hoaDon.getMaPTT());
         viewHolder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

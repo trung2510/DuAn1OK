@@ -18,16 +18,22 @@ import java.util.List;
 public class PhieudangkiDAO {
     DatabaseHelper dbHelper;
     SQLiteDatabase db;
-    SimpleDateFormat sss = new SimpleDateFormat("dd-mm-yyyy");
+    SimpleDateFormat sss = new SimpleDateFormat("dd-MM-yyyy");
     Cursor cursor;
 
     public static final String SQL_Phieu_Dang_Ki  = "CREATE TABLE [PhieuDangKi] (" +
             "[MaPDK] TEXT  NULL PRIMARY KEY," +
             "[MaKH] TEXT  NULL," +
+            "[TenKH] TEXT  NULL," +
             "[MaNV] TEXT  NULL," +
+            "[TenNV] TEXT  NULL," +
             "[NgayDen] DATE," +
             "[SoNgayThue] INTEGER," +
+            "[idPhong] TEXT," +
+            "[tenPhong] TEXT," +
             "[GiaPhong] DOUBLE," +
+            "[idDV] TEXT," +
+            "[tenDV] TEXT," +
             "[GiaDV] DOUBLE," +
             "[TongTien] DOUBLE "+
             ")";
@@ -36,14 +42,37 @@ public class PhieudangkiDAO {
         dbHelper= new DatabaseHelper(context);
         db= dbHelper.getWritableDatabase();
     }
+
+//    public Double getTienTheoNgay(){
+//        double a = 0;
+//        String testSUMDAY = "SELECT SUM(TongTien) from PhieuDangKi " +
+//                "" + " WHERE strftime(\"%Y-%m-%d\", PhieuDangKi.NgayDen / 1000, 'unixepoch') = strftime(\"%Y-%m-%d\",'now') " +
+//                "";
+//
+//        cursor = db.rawQuery(testSUMDAY,null);
+//        cursor.moveToFirst();
+//        while (cursor.isAfterLast()==false){
+//            a = cursor.getDouble(0);
+//            cursor.moveToNext();
+//        }
+//
+//        return a;
+//    }
+
     public int InsertPhieuDangKi(PhieuDangKi phieuDangKi){
         ContentValues contentValues = new ContentValues();
         contentValues.put("MaPDK",phieuDangKi.getMaPDK());
         contentValues.put("MaKH",phieuDangKi.getMaKH());
+        contentValues.put("TenKH",phieuDangKi.getTenKH());
         contentValues.put("MaNV",phieuDangKi.getMaNV());
+        contentValues.put("TenNV",phieuDangKi.getTenNV());
         contentValues.put("NgayDen",sss.format(phieuDangKi.getNgayDen()));
         contentValues.put("SoNgayThue",phieuDangKi.getSoNgayThue());
+        contentValues.put("idPhong",phieuDangKi.getIdPhong());
+        contentValues.put("tenPhong",phieuDangKi.getTenPhong());
         contentValues.put("GiaPhong",phieuDangKi.getGiaPhong());
+        contentValues.put("idDV",phieuDangKi.getIdDV());
+        contentValues.put("GiaDV",phieuDangKi.getGiaDV());
         contentValues.put("GiaDV",phieuDangKi.getGiaDV());
         contentValues.put("TongTien",phieuDangKi.getTongTien());
 
@@ -62,12 +91,18 @@ public class PhieudangkiDAO {
 
     public int updatePDK(PhieuDangKi phieuDangKi){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("MaPDK",phieuDangKi.getMaPDK());
+//        contentValues.put("MaPDK",phieuDangKi.getMaPDK());
         contentValues.put("MaKH",phieuDangKi.getMaKH());
+        contentValues.put("TenKH",phieuDangKi.getMaKH());
         contentValues.put("MaNV",phieuDangKi.getMaNV());
-        contentValues.put("NgayDen",sss.format(phieuDangKi.getNgayDen()));
+        contentValues.put("TenNV",phieuDangKi.getTenNV());
+//        contentValues.put("NgayDen",sss.format(phieuDangKi.getNgayDen()));
         contentValues.put("SoNgayThue",phieuDangKi.getSoNgayThue());
+        contentValues.put("idPhong",phieuDangKi.getIdPhong());
+        contentValues.put("tenPhong",phieuDangKi.getTenPhong());
         contentValues.put("GiaPhong",phieuDangKi.getGiaPhong());
+        contentValues.put("idDV",phieuDangKi.getIdDV());
+        contentValues.put("tenDV",phieuDangKi.getTenDV());
         contentValues.put("GiaDV",phieuDangKi.getGiaDV());
         contentValues.put("TongTien",phieuDangKi.getTongTien());
         try{
@@ -87,17 +122,23 @@ public class PhieudangkiDAO {
         while (cursor.isAfterLast()==false){
             PhieuDangKi phieuDangKi = new PhieuDangKi();
             phieuDangKi.setMaPDK(cursor.getString(0));
-            phieuDangKi.setMaKH(cursor.getString(1));
-            phieuDangKi.setMaNV(cursor.getString(2));
+            phieuDangKi.setMaKH(cursor.getInt(1));
+            phieuDangKi.setTenKH(cursor.getString(2));
+            phieuDangKi.setMaNV(cursor.getInt(3));
+            phieuDangKi.setTenNV(cursor.getString(4));
             try {
-                phieuDangKi.setNgayDen(sss.parse(cursor.getString(3)));
+                phieuDangKi.setNgayDen(sss.parse(cursor.getString(5)));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            phieuDangKi.setSoNgayThue(Integer.parseInt(cursor.getString(4)));
-            phieuDangKi.setGiaPhong(Double.parseDouble(cursor.getString(5)));
-            phieuDangKi.setGiaDV(Double.parseDouble(cursor.getString(6)));
-            phieuDangKi.setTongTien(cursor.getDouble(7));
+            phieuDangKi.setSoNgayThue(Integer.parseInt(cursor.getString(6)));
+            phieuDangKi.setIdPhong(Integer.parseInt(cursor.getString(7)));
+            phieuDangKi.setTenPhong(cursor.getString(8));
+            phieuDangKi.setGiaPhong(Double.parseDouble(cursor.getString(9)));
+            phieuDangKi.setIdDV(Integer.parseInt(cursor.getString(10)));
+            phieuDangKi.setTenDV(cursor.getString(11));
+            phieuDangKi.setGiaDV(Double.parseDouble(cursor.getString(12)));
+            phieuDangKi.setTongTien(cursor.getDouble(13));
             phieuDangKiArrayList.add(phieuDangKi);
             cursor.moveToNext();
         }
@@ -122,4 +163,8 @@ public class PhieudangkiDAO {
 
         return trung;
     }
+
+
+
+
 }

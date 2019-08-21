@@ -51,8 +51,13 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
     private EditText edSongaythuephong;
     private EditText edtGiaPhong;
     private EditText edtGiaDV;
-    private SimpleDateFormat sss = new SimpleDateFormat("dd-mm-yyyy");
+    private SimpleDateFormat sss = new SimpleDateFormat("dd-MM-yyyy");
     private TextView tvTongTien;
+
+    int maKH;
+    int maNV;
+    int idPhong;
+    int idDV;
 
     PhieudangkiDAO phieudangkiDAO;
     List<String> stringListMaKH = new ArrayList<>();
@@ -89,23 +94,27 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
         KhachhangDAO khachhangDAO = new KhachhangDAO(getApplicationContext());
         stringListMaKH = khachhangDAO.getMaKH();
         ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,stringListMaKH);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spnMaKH.setAdapter(arrayAdapter);
 
         //List MÃ NV
         NhanvienDAO nhanvienDAO  = new NhanvienDAO(getApplicationContext());
         stringListMaNV = nhanvienDAO.getMaNV();
         ArrayAdapter arrayAdapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,stringListMaNV);
+        arrayAdapter2.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spnMaNV.setAdapter(arrayAdapter2);
 
         //List giá DV
         DichvuDAO dichvuDAO  = new DichvuDAO(getApplicationContext());
         stringListGiaDV = dichvuDAO.getMaDV();
         ArrayAdapter arrayAdapter3 = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,stringListGiaDV);
+        arrayAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_multiple_choice);
         spnDV.setAdapter(arrayAdapter3);
         //List MÃ Phòng
         PhongDAO phongDAO  = new PhongDAO(getApplicationContext());
         stringListMaP = phongDAO.getMaP();
         ArrayAdapter lll = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,stringListMaP);
+        lll.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spnPhong.setAdapter(lll);
 
 
@@ -119,11 +128,19 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
             @Override
             public void onClick(View v) {
 
+                maKH = spnMaKH.getSelectedItemPosition();
+                maNV = spnMaNV.getSelectedItemPosition();
+                idPhong = spnPhong.getSelectedItemPosition();
+                idDV = spnDV.getSelectedItemPosition();
+
                 phieudangkiDAO = new PhieudangkiDAO(PhieuDangKiActivity.this);
+
 
                 String id = edMaPDK.getText().toString();
                 String name = spnMaKH.getSelectedItem().toString();
                 String mt = spnMaNV.getSelectedItem().toString();
+                String phong = spnPhong.getSelectedItem().toString();
+                String DV = spnDV.getSelectedItem().toString();
                 Double tvtt=Double.parseDouble(tvTongTien.getText().toString()+"");
                 Date gt = null;
                 try {
@@ -132,6 +149,8 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
                     e.printStackTrace();
                 }
                 int dc = Integer.parseInt(edSongaythuephong.getText().toString());
+
+
                 Double gp =Double.parseDouble( edtGiaPhong.getText().toString());
                 Double gdv = Double.parseDouble(edtGiaDV.getText().toString());
                 if (id.equals("")){
@@ -140,7 +159,7 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
 
 
 
-                PhieuDangKi phieuDangKi = new PhieuDangKi(id,name,mt,gt,dc,gp,gdv,tvtt);
+                PhieuDangKi phieuDangKi = new PhieuDangKi(id,maKH,name,maNV,mt,gt,dc,idPhong,phong,gp,idDV,DV,gdv,tvtt);
 
                 if (phieudangkiDAO.InsertPhieuDangKi(phieuDangKi) > 0) {
                     Toast.makeText(PhieuDangKiActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
@@ -165,6 +184,14 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
             if (intent!=null){
                 Bundle bundle = intent.getBundleExtra("bun");
                 edMaPDK.setText(bundle.getString("1"));
+                maKH = bundle.getInt("2");
+                maNV = bundle.getInt("3");
+                idPhong = bundle.getInt("idPhong");
+                idDV = bundle.getInt("idDV");
+                spnMaKH.setSelection(maKH);
+                spnMaNV.setSelection(maNV);
+                spnPhong.setSelection(idPhong);
+                spnDV.setSelection(idDV);
                 edSongaythuephong.setText(bundle.getInt("4")+"");
                 edtGiaPhong.setText(bundle.getDouble("5")+"");
                 edtGiaDV.setText(bundle.getDouble("6")+"");
@@ -177,6 +204,10 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
     }
 
     public void UpdatePDK(View view){
+        maKH = spnMaKH.getSelectedItemPosition();
+        maNV = spnMaNV.getSelectedItemPosition();
+        idPhong = spnPhong.getSelectedItemPosition();
+        idDV = spnDV.getSelectedItemPosition();
 
         phieudangkiDAO = new PhieudangkiDAO(PhieuDangKiActivity.this);
 
@@ -190,6 +221,8 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
             e.printStackTrace();
         }
         int dc = Integer.parseInt(edSongaythuephong.getText().toString());
+        String phong = spnPhong.getSelectedItem().toString();
+        String DV = spnDV.getSelectedItem().toString();
         Double gp =Double.parseDouble( edtGiaPhong.getText().toString());
         Double gdv = Double.parseDouble(edtGiaDV.getText().toString());
         Double tvtt=Double.parseDouble(tvTongTien.getText().toString()+"");
@@ -204,7 +237,7 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
         }
 
 
-        PhieuDangKi phieuDangKi = new PhieuDangKi(id,name,mt,gt,dc,gp,gdv,tvtt);
+        PhieuDangKi phieuDangKi = new PhieuDangKi(id,maKH,name,maNV,mt,gt,dc,idPhong,phong,gp,idDV,DV,gdv,tvtt);
 
         if (phieudangkiDAO.updatePDK(phieuDangKi) > 0) {
             Toast.makeText(PhieuDangKiActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
@@ -225,6 +258,7 @@ public class PhieuDangKiActivity extends AppCompatActivity implements DatePicker
         Double gp =Double.parseDouble( edtGiaPhong.getText().toString());
         Double gdv = Double.parseDouble(edtGiaDV.getText().toString());
 
+//        tvTongTien.setText("Số tiền phải trả là: "+ dc*(gp+gdv));
         tvTongTien.setText(dc*(gp+gdv)+"");
     }
 

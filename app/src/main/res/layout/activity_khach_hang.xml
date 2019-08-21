@@ -15,6 +15,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:textColorHint="@color/cam"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="20">
@@ -29,6 +30,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="20">
 
@@ -43,6 +45,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="20">
 
@@ -57,6 +60,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="10">
 
@@ -70,6 +74,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:textColorHint="@color/cam"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="13">
@@ -78,12 +83,14 @@
             android:id="@+id/edCMND"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Số CMND" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="58dp"
+        android:textColorHint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="10">
 
@@ -98,6 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="58dp"
         app:counterEnabled="true"
+        android:textColorHint="@color/cam"
         app:counterMaxLength="20">
 
         <EditText
@@ -118,11 +126,15 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
+            android:background="@color/cam"
+            android:textColor="#fff"
             android:text="Lưu" />
 
         <Button
             android:id="@+id/btnHuy"
             android:layout_width="150dp"
+            android:textColor="#fff"
+            android:background="@color/cam"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="Hủy" />
@@ -131,13 +143,19 @@
     <Button
         android:id="@+id/btnShow"
         android:layout_width="match_parent"
+        android:textColor="#fff"
         android:layout_height="wrap_content"
+        android:background="@color/cam"
+        android:layout_marginTop="5dp"
         android:text="Danh Sách Khách Hàng" />
 
     <Button
         android:id="@+id/btnUpdate"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:background="@color/cam"
         android:text="Cập Nhật"
         android:onClick="UpdateKhachHang"/>
 </LinearLayout>

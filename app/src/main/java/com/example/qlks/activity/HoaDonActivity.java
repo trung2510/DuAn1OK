@@ -18,6 +18,7 @@ import com.example.qlks.model.HoaDon;
 
 public class HoaDonActivity extends AppCompatActivity {
     private TextView tvThongKe;
+//    private TextView tvThongKe2;
 
 
 
@@ -30,10 +31,12 @@ public class HoaDonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hoa_don);
         tvThongKe = (TextView) findViewById(R.id.tvThongKe);
+//        tvThongKe2 = (TextView) findViewById(R.id.tvThongKe2);
 
 
         PhieudangkiDAO phieudangkiDAO= new PhieudangkiDAO(getApplicationContext());
         tvThongKe.setText(     "Tổng Doanh Thu: "    +phieudangkiDAO.getTongTien()       +       " VNĐ"      );
+//        tvThongKe2.setText(     "Tổng Doanh Thu Trong Ngày: "    +phieudangkiDAO.getTienTheoNgay()       +       " VNĐ"      );
 
 }   }
 

@@ -17,12 +17,15 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
+        android:backgroundTint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="20">
 
         <EditText
             android:id="@+id/edMaNV"
             android:layout_width="match_parent"
+            android:backgroundTint="@color/cam"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:hint="Mã Nhân Viên" />
@@ -31,6 +34,9 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
+        android:backgroundTint="@color/cam"
+
         app:counterEnabled="true"
         app:counterMaxLength="50">
 
@@ -38,12 +44,14 @@
             android:id="@+id/edTenNV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/cam"
             android:layout_marginTop="10dp"
             android:hint="Tên Nhân Viên" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:textColorHint="@color/cam"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="20">
@@ -52,6 +60,7 @@
             android:id="@+id/edMaCV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/cam"
             android:layout_marginTop="10dp"
             android:hint="Mã Chức Vụ" />
     </android.support.design.widget.TextInputLayout>
@@ -59,6 +68,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
+        android:backgroundTint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="10">
 
@@ -66,13 +77,16 @@
             android:id="@+id/edGT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/cam"
             android:layout_marginTop="10dp"
             android:hint="Giới Tính" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:textColorHint="@color/cam"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="20">
 
@@ -80,6 +94,7 @@
             android:id="@+id/edNgaySinh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/cam"
             android:layout_marginTop="10dp"
             android:hint="Ngày Sinh" />
     </android.support.design.widget.TextInputLayout>
@@ -87,11 +102,13 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="20">
 
         <EditText
             android:id="@+id/edDiaChi"
+            android:backgroundTint="@color/cam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -100,37 +117,48 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:weightSum="2"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnLuu"
             android:layout_width="150dp"
+            android:textColor="#FFF"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
+            android:background="@color/cam"
+            android:layout_marginTop="5dp"
             android:text="Lưu" />
 
         <Button
             android:id="@+id/btnHuy"
             android:layout_width="150dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:background="@color/cam"
+            android:layout_marginTop="5dp"
             android:text="Hủy" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnShow"
+        android:textColor="#FFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@color/cam"
         android:text="Danh Sách Nhân Viên" />
 
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
+        android:textColor="#FFF"
         android:text="Cập Nhật"
+        android:background="@color/cam"
         android:onClick="UpdateNhanVien"/>
 </LinearLayout>

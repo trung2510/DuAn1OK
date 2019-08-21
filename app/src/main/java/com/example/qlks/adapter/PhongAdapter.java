@@ -39,8 +39,8 @@ public class PhongAdapter extends RecyclerView.Adapter<PhongAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         Phong phong = phongList.get(i);
-        viewHolder.txtID.setText(phong.getTenPhong());
-        viewHolder.txtDATE.setText(phong.getTinhTrang());
+        viewHolder.txtID.setText("Tên phòng: "+phong.getTenPhong());
+        viewHolder.txtDATE.setText("Tình trạng: "+phong.getTinhTrang());
         viewHolder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

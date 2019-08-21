@@ -16,6 +16,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="20">
 
@@ -29,6 +30,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:textColorHint="@color/cam"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="20">
@@ -44,6 +46,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:textColorHint="@color/cam"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="100">
@@ -60,21 +63,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:weightSum="2"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnLuu"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:background="@color/cam"
             android:layout_marginTop="10dp"
+            android:textColor="#FFF"
             android:text="Lưu" />
 
         <Button
             android:id="@+id/btnHuy"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:textColor="#FFF"
+            android:background="@color/cam"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:text="Hủy" />
     </LinearLayout>
@@ -83,12 +92,17 @@
         android:id="@+id/btnShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:background="@color/cam"
         android:layout_marginTop="10dp"
         android:text="Danh Sách Phòng" />
 
     <Button
         android:id="@+id/btnUpdate"
+        android:background="@color/cam"
         android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:textColor="#FFF"
         android:layout_height="wrap_content"
         android:text="Cập Nhật"
         android:onClick="UpdatePhong"/>

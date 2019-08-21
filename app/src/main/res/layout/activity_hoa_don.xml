@@ -5,13 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
+    android:gravity="center"
     android:layout_margin="8dp"
     tools:context=".activity.HoaDonActivity">
 
     <TextView
         android:id="@+id/tvThongKe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/cam"
+        android:layout_height="wrap_content" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvThongKe2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textSize="30sp"-->
+        <!--android:text="aâ"-->
+        <!--android:textColor="@color/cam"-->
+        <!--android:layout_height="wrap_content" />-->
 
 </LinearLayout>

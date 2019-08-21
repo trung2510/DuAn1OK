@@ -18,6 +18,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/cam"
         app:counterEnabled="true"
         app:counterMaxLength="20">
 
@@ -28,146 +29,174 @@
             android:layout_marginTop="30dp"
             android:hint="Mã PĐK" />
     </android.support.design.widget.TextInputLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tên khách hàng:"/>
+        android:text="Tên khách hàng:"
+        android:textColor="@color/cam" />
+
     <android.support.v7.widget.AppCompatSpinner
-        android:layout_width="match_parent"
         android:id="@+id/spnMaKH"
-        android:layout_marginBottom="8dp"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tên nhân viên"/>
+        android:textColor="@color/cam"
+        android:text="Tên nhân viên" />
+
     <android.support.v7.widget.AppCompatSpinner
-        android:layout_width="match_parent"
         android:id="@+id/spnMaNV"
-        android:layout_height="wrap_content"/>
-
-
-        <LinearLayout
-            android:weightSum="10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-                <EditText
-                    android:layout_weight="10"
-                    android:id="@+id/edNgayDen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="DD-MM-YYYYYYYY" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chọn"
-                android:onClick="datePicker"/>
-        </LinearLayout>
-
-    <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:counterMaxLength="20">
-
-            <EditText
-                android:id="@+id/edSongaythuephong"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="Số ngày thuê phòng"
-                android:inputType="number"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chọn phòng:"/>
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spnPhong"/>
-    <EditText
-        android:id="@+id/edtGiaPhong"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Giá phòng"
-        android:inputType="number"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chọn dịch vụ:"/>
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spnDV"/>
-    <EditText
-        android:id="@+id/edtGiaDV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Giá dịch vụ"
-        android:inputType="number"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvTongTien"/>
-
+        android:layout_height="wrap_content" />
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:weightSum="10">
+
+
+        <EditText
+            android:id="@+id/edNgayDen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/cam"
+            android:textColorHint="@color/cam"
+            android:layout_weight="10"
+            android:hint="DD-MM-YYYYYYYY" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thanh toán"
-            android:onClick="ThanhToan"/>
+            android:background="@color/cam"
+            android:onClick="datePicker"
+            android:text="Chọn"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        android:textColorHint="@color/cam"
+        app:counterMaxLength="20">
+
+        <EditText
+            android:id="@+id/edSongaythuephong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Số ngày thuê phòng"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cam"
+        android:text="Chọn phòng:" />
+
+    <Spinner
+        android:id="@+id/spnPhong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edtGiaPhong"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/cam"
+        android:layout_height="wrap_content"
+        android:hint="Giá phòng"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/cam"
+        android:layout_height="wrap_content"
+        android:text="Chọn dịch vụ:" />
+
+    <Spinner
+        android:id="@+id/spnDV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edtGiaDV"
+        android:textColorHint="@color/cam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Giá dịch vụ"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tvTongTien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="2"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:layout_margin="2dp"
+            android:background="@color/cam"
+            android:onClick="ThanhToan"
+            android:text="Thanh toán" />
 
         <Button
             android:id="@+id/btnLuu"
-            android:layout_width="113dp"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:background="@color/cam"
             android:layout_height="wrap_content"
             android:text="Lưu" />
 
-            <!--android:layout_marginLeft="40dp"-->
 
-            <!--android:layout_marginTop="10dp"-->
-
-
-        <!--<Button-->
-            <!--android:id="@+id/btnHuy"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="30dp"-->
-            <!--android:text="Hủy"-->
-            <!--/>-->
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:weightSum="2"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnShow"
-            android:layout_width="197dp"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:background="@color/cam"
             android:layout_height="wrap_content"
-            android:text="Danh Sách PĐK" /><!--android:layout_marginTop="10dp"-->
+            android:text="Danh Sách PĐK" />
 
 
-    <Button
-        android:id="@+id/btnUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cập Nhật"
-        android:onClick="UpdatePDK"/>
+        <Button
+            android:id="@+id/btnUpdate"
+            android:background="@color/cam"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:textColor="#FFF"
+            android:layout_margin="2dp"
+            android:layout_height="wrap_content"
+            android:onClick="UpdatePDK"
+            android:text="Cập Nhật" />
     </LinearLayout>
 
 

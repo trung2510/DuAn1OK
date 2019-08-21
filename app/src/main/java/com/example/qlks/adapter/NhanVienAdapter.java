@@ -39,8 +39,8 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         NhanVien nhanVien = nhanVienList.get(i);
-        viewHolder.txtID.setText(nhanVien.getMaNV());
-        viewHolder.txtDATE.setText(nhanVien.getNgaySinh());
+        viewHolder.txtID.setText("Tên NV: "+nhanVien.getTenNV());
+        viewHolder.txtDATE.setText("Ngày sinh: " + nhanVien.getNgaySinh());
         viewHolder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

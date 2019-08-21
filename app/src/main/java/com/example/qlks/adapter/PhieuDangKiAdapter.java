@@ -41,8 +41,8 @@ public class PhieuDangKiAdapter extends RecyclerView.Adapter<PhieuDangKiAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         final PhieuDangKi PhieuDangKiDAO = phieuDangKiList.get(i);
-        viewHolder.txtID.setText(PhieuDangKiDAO.getMaKH());
-        viewHolder.txtDATE.setText(PhieuDangKiDAO.getTongTien()+"");
+        viewHolder.txtID.setText("Khách hàng: "+PhieuDangKiDAO.getTenKH()+"");
+        viewHolder.txtDATE.setText("Số tiền đã trả: "+PhieuDangKiDAO.getTongTien()+" VNĐ");
         viewHolder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,8 +50,12 @@ public class PhieuDangKiAdapter extends RecyclerView.Adapter<PhieuDangKiAdapter.
                 Intent intent = new Intent(context, PhieuDangKiActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("1",phieuDangKi.getMaPDK());
-                bundle.putString("2",phieuDangKi.getMaKH());
-                bundle.putString("3",phieuDangKi.getMaNV());
+                bundle.putInt("2",phieuDangKi.getMaKH());
+//                bundle.putString("9",phieuDangKi.getTenKH());
+                bundle.putInt("3",phieuDangKi.getMaNV());
+                bundle.putInt("idPhong",phieuDangKi.getIdPhong());
+                bundle.putInt("idDV",phieuDangKi.getIdDV());
+
                 bundle.putInt("4",phieuDangKi.getSoNgayThue());
                 bundle.putDouble("5",phieuDangKi.getGiaPhong());
                 bundle.putDouble("6",phieuDangKi.getGiaDV());

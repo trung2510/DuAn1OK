@@ -39,8 +39,8 @@ public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         KhachHang khachHang = khachHangs.get(i);
-        viewHolder.txtID.setText(khachHang.getTenKH());
-        viewHolder.txtDATE.setText(khachHang.getQuocTich());
+        viewHolder.txtID.setText("Khách hàng: "+khachHang.getTenKH());
+        viewHolder.txtDATE.setText("Quốc tịch: "+khachHang.getQuocTich());
         viewHolder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

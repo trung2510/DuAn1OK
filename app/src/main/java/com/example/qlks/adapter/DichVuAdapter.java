@@ -39,8 +39,8 @@ public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         DichVu dichVu = dichVuList.get(i);
-        viewHolder.txtID.setText(dichVu.getTenDV());
-        viewHolder.txtDATE.setText(dichVu.getGiaDV());
+        viewHolder.txtID.setText("Tên dịch vụ: " + dichVu.getTenDV());
+        viewHolder.txtDATE.setText("Giá tiền: "+dichVu.getGiaDV() +" VNĐ");
         viewHolder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
